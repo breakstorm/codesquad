@@ -20,8 +20,6 @@ function printArrayElement(arr) {
 }
 console.log(printArrayElement(arr));
 
------------------------------------------------------
-
 function printNotArrayElement(arr) {
     let result = [];
     for(let i = 0; i < arr.length; ++i) {
