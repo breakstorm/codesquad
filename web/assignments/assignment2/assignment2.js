@@ -74,11 +74,10 @@ function _appendNewChildNode(root, todo) {
 }
 
 
-/* 
- * 3번문제는 여기에 자세히 설명을 넣으시면 됩니다.
- * 
- * 
- * 
+/*
+ querySelector를 이용해서 얻어진 controller에  onclick함수에  callback함수를 매개변수로 넣어 addEventListener함수를 호출합니다
+ btn의 tagName이 버튼이면, inputValue에 String값이나 number값을 넣고 actionType에는 btn의 className을 넣는데 이 숙제에서 버튼의 className은 add이거나 remove입니다.
+ 이 두개의 값을 executeItemNode에 인자값으로 넘겨 함수를 실행합니다
  */
 
 let controller = document.querySelector(".controller");
