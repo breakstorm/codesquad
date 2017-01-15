@@ -182,3 +182,14 @@ console.log(calculate2(20,"10","plus"));
 // console.log(calculate2("10",20,"plus"));
 // console.log(calculate2(10,20,"pluuuuus"));
 // console.log(calculate2(10,20,30,"pluuuuus"));
+
+
+var controller = document.querySelector(".controller");
+
+controller.addEventListener("click", function(evt) {
+    var btn = evt.target;
+    if(btn.tagName !== "BUTTON") return;
+    var inputValue = btn.previousElementSibling.value;
+    var actionType = btn.className;
+    doSomething(actionType, inputValue);
+});
