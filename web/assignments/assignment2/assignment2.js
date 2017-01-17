@@ -3,47 +3,48 @@ const listSection = document.querySelector(".basket > ul");
 const messageSection = document.querySelector(".message");
 let todoList = ["씻기", "공부하기", "게임한판하기", "html공부하기", "자바스크립트 책 사기"];
 
-function executeItemNode(actionType, todoORnumber) {
-  if(actionType === "add") {
-    todoORnumber = todoORnumber.trim();
+let todoManager = {
+  "add" : function (todoORnumber) {
+    if(_isThereAlreadySameTodo(todoORnumber)) return _addErrorMessage("You already have this todo.");
+    executeAdd(listSection, todoORnumber);
+  },
 
-    if(_isThereAlreadySameTodo(todoORnumber)) {
-      _addErrorMessage("You already have this todo.");
-      return;
-    }
-
-    _removeAllChildNode(listSection);
-    todoList.push(todoORnumber);
-    todoList.sort((a, b) => a.length - b.length);
-    todoList.forEach(todo => _appendNewChildNode(listSection, todo));
-  }
-
-  if(actionType === "remove") {
-    if(todoORnumber > todoList.length || todoORnumber < 1) {
-      _addErrorMessage("You missed, please check the number of todo");
-      return;
-    }
-
-    _removeAllChildNode(listSection);
-    todoList.splice(todoORnumber - 1, 1);
-    todoList.forEach(todo => _appendNewChildNode(listSection, todo));
+  "remove" : function (todoORnumber) {
+    if(todoORnumber > todoList.length || todoORnumber < 1) return _addErrorMessage("You missed, please check the number of todo");
+    executeRemove(listSection, todoORnumber);
   }
 }
+
+
+function executeItemNode(actionType, todoORnumber) {
+  if(actionType == "add") todoManager.add(todoORnumber);
+
+  if(actionType === "remove") todoManager.remove(todoORnumber);
+}
+
 
 function _isThereAlreadySameTodo(todoORnumber) {
   const result = todoList.some(todo => todo === todoORnumber);
   return result;
 }
 
+
+//createElement와 createTextNode대신에 element.insertAdjacentHTML(position, text); 써보기
 function _addErrorMessage(message) {
-  var h4 = document.createElement("h4");
-  h4.appendChild(document.createTextNode(message));
-  h4.style.color = "red";
-  messageSection.appendChild(h4);
+  _makeDom(message);
   setTimeout(() => {
     _removeAllChildNode(messageSection);
   }, 3000);
 }
+
+
+function _makeDom(message) {
+  var h4 = document.createElement("h4");
+  h4.appendChild(document.createTextNode(message));
+  h4.style.color = "red";
+  messageSection.appendChild(h4);
+}
+
 
 function _removeAllChildNode(root) {
   if(root) {
@@ -53,11 +54,34 @@ function _removeAllChildNode(root) {
   }
 }
 
+
 function _appendNewChildNode(root, todo) {
   let li = document.createElement("li");
   li.appendChild(document.createTextNode(todo));
   root.appendChild(li);
 }
+
+
+function executeAdd(listSection, todoORnumber) {
+  _removeAllChildNode(listSection);
+  todoList.push(todoORnumber);
+  todoList.sort((a, b) => a.length - b.length);
+  todoList.forEach(todo => _appendNewChildNode(listSection, todo));
+}
+
+function executeRemove(listSection, todoORnumber) {
+  _removeAllChildNode(listSection);
+  todoList.splice(todoORnumber - 1, 1);
+  todoList.forEach(todo => _appendNewChildNode(listSection, todo));
+}
+
+
+
+
+
+
+
+
 
 /*
  querySelector를 이용해서 얻어진 controller에  onclick함수에  callback함수를 매개변수로 넣어 addEventListener함수를 호출합니다
