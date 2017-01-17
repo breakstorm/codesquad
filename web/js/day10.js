@@ -1,3 +1,47 @@
+
+
+const writeInput = document.querySelector(".write_input");
+const writeLocation = document.querySelector(".write_location");
+const writeCancel = document.querySelector(".write_cancel");
+const writeError = document.querySelector(".write_error");
+writeInput.addEventListener("focus", writeInputFocusHandler);
+writeInput.addEventListener("focusout", writeCancelClickHandler);
+writeInput.addEventListener("keydown", writeInputKeyDownHandler);
+writeCancel.addEventListener("click", writeCancelClickHandler);
+
+function writeInputFocusHandler(evt) {
+  writeLocation.style.display = "none";
+  writeCancel.style.display = "inline";
+}
+
+function writeCancelClickHandler(evt) {
+  writeInput.value = "";
+
+  writeLocation.style.display = "inline";
+  writeCancel.style.display = "none";
+}
+
+function writeInputKeyDownHandler(evt) {
+  if (writeInput.value.length > 20) {
+    writeError.style.display = "block";
+  } else {
+    writeError.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //position의 absolute는
 //domContentLoaded / addEventListener에서 핸들러는
 //나중에 실행될 함수를 callback함수라고 함
@@ -31,36 +75,6 @@
 // var googleInput = document.querySelector(".test_id");
 // googleInput.addEventListener("focus", clickHandler);
 // googleInput.addEventListener("click", myfunction);
-
-const writeInput = document.querySelector(".write_input");
-const writeLocation = document.querySelector(".write_location");
-const writeCancel = document.querySelector(".write_cancel");
-const writeError = document.querySelector(".write_error");
-writeInput.addEventListener("focus", writeInputFocusHandler);
-writeInput.addEventListener("focusout", writeCancelClickHandler);
-writeInput.addEventListener("keydown", writeInputKeyDownHandler);
-writeCancel.addEventListener("click", writeCancelClickHandler);
-
-function writeInputFocusHandler(evt) {
-  writeLocation.style.display = "none";
-  writeCancel.style.display = "inline";
-}
-
-function writeCancelClickHandler(evt) {
-  writeInput.value = "";
-
-  writeLocation.style.display = "inline";
-  writeCancel.style.display = "none";
-}
-
-function writeInputKeyDownHandler(evt) {
-  if (writeInput.value.length > 20) {
-    writeError.style.display = "block";
-  } else {
-    writeError.style.display = "none";
-  }
-}
-
 // function myfunction(evt) {
 //   evt.style.background = "yellow";
 //
