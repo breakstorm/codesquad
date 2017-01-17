@@ -3,6 +3,7 @@ const listSection = document.querySelector(".basket > ul");
 const messageSection = document.querySelector(".message");
 let todoList = ["씻기", "공부하기", "게임한판하기", "html공부하기", "자바스크립트 책 사기"];
 
+
 let todoManager = {
   "add" : function (todoORnumber) {
     if(_isThereAlreadySameTodo(todoORnumber)) return _addErrorMessage("You already have this todo.");
