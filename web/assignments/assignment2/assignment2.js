@@ -6,12 +6,12 @@ let todoList = ["씻기", "공부하기", "게임한판하기", "html공부하�
 
 let todoManager = {
   "add" : function (todoORnumber) {
-    if(_isThereAlreadySameTodo(todoORnumber)) return _addErrorMessage("You already have this todo.");
+    if(_checkSameTodo(todoORnumber)) return _addError("You already have this todo.");
     executeAdd(listSection, todoORnumber);
   },
 
   "remove" : function (todoORnumber) {
-    if(todoORnumber > todoList.length || todoORnumber < 1) return _addErrorMessage("You missed, please check the number of todo");
+    if(todoORnumber > todoList.length || todoORnumber < 1) return _addError("You missed, please check the number of todo");
     executeRemove(listSection, todoORnumber);
   }
 }
@@ -19,19 +19,18 @@ let todoManager = {
 
 function executeItemNode(actionType, todoORnumber) {
   if(actionType == "add") todoManager.add(todoORnumber);
-
   if(actionType === "remove") todoManager.remove(todoORnumber);
 }
 
 
-function _isThereAlreadySameTodo(todoORnumber) {
+function _checkSameTodo(todoORnumber) {
   const result = todoList.some(todo => todo === todoORnumber);
   return result;
 }
 
 
 //createElement와 createTextNode대신에 element.insertAdjacentHTML(position, text); 써보기
-function _addErrorMessage(message) {
+function _addError(message) {
   _makeDom(message);
   setTimeout(() => {
     _removeAllChildNode(messageSection);
@@ -40,6 +39,7 @@ function _addErrorMessage(message) {
 
 
 function _makeDom(message) {
+
   var h4 = document.createElement("h4");
   h4.appendChild(document.createTextNode(message));
   h4.style.color = "red";
