@@ -1,0 +1,90 @@
+.mainHeader {
+    width: 100%;
+    text-align: center;
+}
+
+.mainHeader > img {
+    disply: inline-block;
+    margin: 0 auto;
+}
+
+.userId {
+    font-weight: bold;
+}
+
+.userMessage {
+    font-size: small;
+    color: grey;
+    margin-top: 5px;
+}
+
+.userSNSInfo {
+    font-size: small;
+    color: grey;
+    margin-top: 5px;
+    margin-right: 35px;
+}
+
+.userSNSInfo > li {
+    display: inline-block;
+    margin: 0 0.5rem;
+    text-align: center;
+}
+
+.count {
+    color: #6dc430;
+}
+
+.globalNav {
+    width: 850px;
+    height: 30px;
+}
+
+.globalNav > div {
+    list-style: none;
+    color: black;
+    background-color: white;
+    border : 1px solid grey;
+    margin-top: 50px;
+    float: left;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.globalNav > div > span {
+    text-decoration: none;
+    display: block;
+    width: 174px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Dotum, Arial;
+}
+
+.globalNav > div > span:hover {
+    color: white;
+    background-color: #f89e82;
+    border-color: #f89e82;
+}
+
+.eleDisplayShow > ul {
+    padding-top: 60px;
+}
+
+.myName {
+    padding-top: 50px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.myDesc {
+    font-size: small;
+    word-spacing: 2px;
+    line-height: 25px;
+}
+
+.selected {
+    color: white;
+    background-color: #f89e82;
+    border-color: #f89e82;
+}
