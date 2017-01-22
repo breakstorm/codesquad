@@ -1,3 +1,4 @@
+//tabUI를 module와 시켰으며, tabUI내에서 ajax를 제외한 모든 함수 및 변수는 private 한 속성을 갖고 있음.
 const tabUI = (function() {
   let prevSpan = null;
   const postCache = {}; //local cache
