@@ -36,23 +36,21 @@
 }
 
 .globalNav {
-    width: 850px;
-    height: 30px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
 }
 
-.globalNav > div {
+.globalNav > .tab {
     list-style: none;
-    color: black;
-    background-color: white;
     border : 1px solid grey;
-    margin-top: 50px;
     float: left;
     line-height: 30px;
     vertical-align: middle;
     text-align: center;
 }
 
-.globalNav > div > span {
+.globalNav > .tab > span {
     text-decoration: none;
     display: block;
     width: 174px;
@@ -67,8 +65,9 @@
     border-color: #f89e82;
 }
 
-.eleDisplayShow > ul {
+.eleDisplayShow {
     padding-top: 60px;
+    text-align: center;
 }
 
 .myName {
@@ -83,7 +82,7 @@
     line-height: 25px;
 }
 
-.selected {
+.selectedTab {
     color: white;
     background-color: #f89e82;
     border-color: #f89e82;

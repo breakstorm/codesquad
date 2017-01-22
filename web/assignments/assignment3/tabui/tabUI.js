@@ -38,6 +38,7 @@ function addElement(title, contents) {
   const contentsDiv = document.querySelector('.myDesc');
   titleDiv.innerHTML = title;
   contentsDiv.innerHTML = contents;
+
 }
 
 function onTabSelected(element) {
@@ -46,6 +47,7 @@ function onTabSelected(element) {
     onTabDeSelected(prevSpan)
   }
   prevSpan = span;
+
   span.style.backgroundColor = '#f89e82';
   span.style.color = 'white';
 }
